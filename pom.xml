@@ -114,6 +114,7 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+         <build>
          <plugins>
                   <plugin>
                            <groupId>org.apache.maven.plugins</groupId>
@@ -158,4 +159,27 @@
                            </configuration>
                   </plugin>
          </plugins>
+         </build>
+         <reporting>
+                  <plugins>
+                           <plugin>
+                                    <groupId>org.apache.maven.plugins</groupId>
+                                    <artifactId>maven-jxr-plugin</artifactId>
+                                    <version>2.5</version>
+                           </plugin>
+                           <plugin>
+                                    <groupId>org.apache.maven.plugins</groupId>
+                                    <artifactId>maven-pmd-plugin</artifactId>
+                                    <version>3.7.0</version>
+                                    <configuration>
+                                             <failOnViolation>false</failOnViolation>
+                                             <rulesets>
+                                                      <ruleset>IdentifyIO.xml</ruleset>
+                                                      <ruleset>IdentifyLogs.xml</ruleset>
+                                                      <ruleset>IdentifySoapRest.xml</ruleset>
+                                             </rulesets>
+                                    </configuration>
+                           </plugin>
+                  </plugins>
+         </reporting>
 </project>
