@@ -114,4 +114,48 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
+         <plugins>
+                  <plugin>
+                           <groupId>org.apache.maven.plugins</groupId>
+                           <artifactId>maven-compiler-plugin</artifactId>
+                           <version>3.7.0</version>
+                           <configuration>
+                                    <compilerArguments>
+                                             <Xlint/>
+                                    </compilerArguments>
+                                    <verbose>true</verbose>
+                                    <source>${java.version}</source>
+                                    <target>${java.version}</target>
+                                    <showWarnings>true</showWarnings>
+                           </configuration>
+                  </plugin>
+                  <plugin>
+                           <groupId>org.apache.maven.plugins</groupId>
+                           <artifactId>maven-site-plugin</artifactId>
+                           <version>3.7.1</version>
+                  </plugin>
+                  <plugin>
+                           <groupId>org.apache.maven.plugins</groupId>
+                           <artifactId>maven-pmd-plugin</artifactId>
+                           <version>3.9.0</version>
+                           <goals>
+                                    <goal>pmd</goal>
+                           </goals>
+                           <configuration>
+                                    <failOnViolation>false</failOnViolation>
+                                    <outputDirectory>code-analysis/reports/html</outputDirectory>
+                                    <targetDirectory>code-analysis/reports/</targetDirectory>
+                                    <aggregate>true</aggregate>
+                                    <language>java</language>
+                                    <skipEmptyReport>false</skipEmptyReport>
+                                    <skipPmdError>false</skipPmdError>
+                                    <includeTests>true</includeTests>
+                                    <rulesets>
+                                             <ruleset>IdentifyIO.xml</ruleset>
+                                             <ruleset>IdentifyLogs.xml</ruleset>
+                                             <ruleset>IdentifySoapRest.xml</ruleset>
+                                    </rulesets>
+                           </configuration>
+                  </plugin>
+         </plugins>
 </project>
